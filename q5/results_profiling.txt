@@ -1,0 +1,18 @@
+Profiling Results for Max Subarray Sum Algorithms
+-------------------------------------------------
+
+This table compares the runtime (in seconds) of three different algorithms for solving the Max Subarray Sum problem, using three input sizes: N = 100, 1000, and 10000. The array was randomly generated with integers in the range [-25, 74].
+
+The codes were compiled with the -O2 optimization flag to achieve a balanced profiling result.  
+This level maintains visibility of key user-defined functions (e.g., maxSubarraySum, generateInput) in the gprof output, while minimizing noise from internal STL functions, 
+and also made the Algorithm Time O(n^3) run fast enough to extract the profiling results without waiting too long.
+
+The table contains the time it took to generate the input, as well as the runtime of each algorithm:
+
+| N \ function | generateInput  | maxSubarraySum O(n)  | maxSubarraySum O(n^2)  | maxSubarraySum O(n^3)  |
+|--------------|----------------|----------------------|------------------------|------------------------|
+| 100          | 0.00 - 0%      | 0.00 - 0%            | 0.00 - 0%              | 0.00   - 0%            |
+| 1000         | 0.00 - 0%      | 0.00 - 0%            | 0.00 - 0%              | 0.10   - 100%          |
+| 10000        | 0.00 - 0%      | 0.00 - 0%            | 0.07 - 100%            | 106.32 - 100%          |
+
+As expected, for larger inputs the runtime of the less efficient algorithms increases significantly. Input generation is very fast and doesn’t affect performance.
